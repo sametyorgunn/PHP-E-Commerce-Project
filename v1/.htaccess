@@ -1,0 +1,51 @@
+RewriteEngine on
+
+#RewriteCond %{SERVER_PORT} 8080 
+#RewriteRule ^(.*)$ https://www.site_adi.com/$1 [R,L]
+
+RewriteCond %{HTTP_HOST} ^site_adi.com. [NC]
+RewriteRule ^(.*)$ https://www.site_adi.com/$1 [L,R=301,NC]
+
+
+#Seo url oluşturma
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+#404 hata sayfası yönlendirme kodu
+#ErrorDocument 404 http://www.isteeticaret.com.tr
+
+
+
+RewriteRule ^Anasayfa$ index.php [NC,L]
+RewriteRule ^UyeliksizHavale$ uyeliksizhavale.php [NC,L]
+RewriteRule ^Arama$ urun/arama.php [NC,L]
+RewriteRule ^Sepet$ siparis/sepet.php [NC,L]
+RewriteRule ^Odeme$ siparis/odeme.php [NC,L]
+RewriteRule ^Bankaodeme$ siparis/bankaileodeme.php [NC,L]
+RewriteRule ^Kapidaodeme$ siparis/kapidaodeme.php [NC,L]
+RewriteRule ^Kartodeme$ siparis/kartileodeme.php [NC,L]
+RewriteRule ^iletisim$ sayfa/iletisim.php [NC,L]
+RewriteRule ^Sozlesme$ sayfa/sozlesme.php [NC,L]
+RewriteRule ^Urundetay/([0-9a-zA-Z-_]+) urun/urundetay.php [L,QSA]
+RewriteRule ^Hesabim uye/hesabim.php [NC,L]
+RewriteRule ^Siparislerim$ uye/siparisler.php [NC,L]
+RewriteRule ^Siparisdetay uye/siparis-detay.php [NC,L]
+RewriteRule ^siparistakip$ siparis/siparistakip.php [NC,L]
+RewriteRule ^siparistakipdetay$ siparis/siparistakipdetay.php [NC,L]
+RewriteRule ^Bilgilerim$ uye/bilgiguncelle.php [NC,L]
+RewriteRule ^sepetsil$ siparis/sepetsil.php [NC,L]
+RewriteRule ^Havale$ uye/havalebildirim.php [NC,L]
+RewriteRule ^Banka$ uye/banka.php [NC,L]
+RewriteRule ^UyeGiris$ sayfa/giris.php [NC,L]
+RewriteRule ^odemeyapislems$ iyzico/samples/initialize_checkout_form.php [NC,L]
+RewriteRule ^odemeyapislemss$ shopier/shopier.php [NC,L]
+RewriteRule ^paytrodemesi$ paytr/payment.php [NC,L]
+RewriteRule ^UyeliksizGiris$ sayfa/uyeliksizgiris.php [NC,L]
+RewriteRule ^UyeKayit$ sayfa/kayitol.php [NC,L]
+RewriteRule ^mailsender$ sayfa/MailSender.php [NC,L]
+RewriteRule ^Cikis$ uye/logout.php [NC,L]
+RewriteRule ^Uyeliksizodeme$ sayfa/uyeliksizgiris.php [NC,L]
+RewriteRule ^Kurumsal/([0-9a-zA-Z-_]+)/([0-9a-zA-Z-_]+) sayfa/sayfalar.php?sayfa_slug=$1&id=$2 [L,QSA]
+RewriteRule ^Sozlesme/([0-9a-zA-Z-_]+)/([0-9a-zA-Z-_]+) sayfa/sozlesme.php?sozlesme_slug=$1&id=$2 [L,QSA]
+RewriteRule ^Kategori/([0-9a-zA-Z-_]+) urun/kategori.php?kategori_slug=$1&id=$2 [L,QSA]

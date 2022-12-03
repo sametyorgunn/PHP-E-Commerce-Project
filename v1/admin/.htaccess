@@ -1,0 +1,55 @@
+RewriteEngine on
+
+#RewriteCond %{SERVER_PORT} 8080 
+#RewriteRule ^(.*)$ https://www.site_adi.com/$1 [R,L]
+
+RewriteCond %{HTTP_HOST} ^site_adi.com. [NC]
+RewriteRule ^(.*)$ https://www.site_adi.com/$1 [L,R=301,NC]
+
+
+#Seo url oluşturma
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+#404 hata sayfası yönlendirme kodu
+#ErrorDocument 404 http://localhost:8080/aybelya
+
+
+
+RewriteRule ^Anasayfa$ sayfa/index.php [NC,L]
+RewriteRule ^Giris$ giris.php [NC,L]
+RewriteRule ^Cikis$ logout.php [NC,L]
+RewriteRule ^Urunler$ urun/urunler.php [NC,L]
+RewriteRule ^Urunekle$ urun/urunekle.php [NC,L]
+RewriteRule ^Urunduzenle$ urun/urunduzenle.php [NC,L]
+RewriteRule ^Markalar$ urun/marka.php [NC,L]
+RewriteRule ^Varyant$ urun/varyant.php [NC,L]
+RewriteRule ^VaryantDeger$ urun/varyantdeger.php [NC,L]
+RewriteRule ^Kategoriler$ urun/kategori.php [NC,L]
+RewriteRule ^Kategoriekle$ urun/kategoriekle.php [NC,L]
+RewriteRule ^Kategoriduzenle$ urun/kategoriduzenle.php [NC,L]
+RewriteRule ^Uyeler$ sayfa/uyeler.php [NC,L]
+RewriteRule ^Uyeekle$ sayfa/uyeekle.php [NC,L]
+RewriteRule ^Uyeduzenle$ sayfa/uyeduzenle.php [NC,L]
+RewriteRule ^Slider$ sayfa/slider.php [NC,L]
+RewriteRule ^Banner$ sayfa/banner.php [NC,L]
+RewriteRule ^Sayfalar$ sayfa/sayfa.php [NC,L]
+RewriteRule ^Sozlesmeler$ sayfa/sozlesme.php [NC,L]
+RewriteRule ^Sorular$ sayfa/sorular.php [NC,L]
+RewriteRule ^Havale$ siparis/havale.php [NC,L]
+RewriteRule ^iletisim$ sayfa/iletisim.php [NC,L]
+RewriteRule ^Kampanyalar$ kampanya/kampanya.php [NC,L]
+RewriteRule ^Ayar$ ayarlar/genelayarlar.php [NC,L]
+RewriteRule ^Yonetici$ ayarlar/yonetici.php [NC,L]
+RewriteRule ^Yoneticiekle$ ayarlar/yoneticiekle.php [NC,L]
+RewriteRule ^Yoneticiduzenle$ ayarlar/yoneticiduzenle.php [NC,L]
+RewriteRule ^YoneticiDuzenle$ ayarlar/yoneticiduzenle.php [NC,L]
+RewriteRule ^OdemeSistem$ ayarlar/odeme.php [NC,L]
+RewriteRule ^Bankalar$ ayarlar/banka.php [NC,L]
+RewriteRule ^Siparisler$ siparis/siparisler.php [NC,L]
+RewriteRule ^SiparisDetay$ siparis/siparisdetay.php [NC,L]
+RewriteRule ^MailAyar$ ayarlar/mailayar.php [NC,L]
+RewriteRule ^SmsAyar$ ayarlar/smsayar.php [NC,L]
+
+
